@@ -10,11 +10,11 @@ export default function Form() {
   const [newGender, setGender] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
 
-  // console.log("Check gender:", newGender);
+  //   console.log("Check gender:", newGender);
   //   console.log("Check lastName: ", newLastN);
   //   console.log("Check phone: ", newPhone);
   //   console.log("Check email: ", newEmail);
-  console.log("Check date:", selectedDate);
+  //   console.log("Check date:", selectedDate);
   //   console.log("Check firstName: ", newFirstN);
 
   function handleSubmit(event) {
