@@ -6,17 +6,24 @@ export default function TimeOfContact() {
   // console.log("Check time: ", time);
 
   // const time = moment().utcOffset("+01:55").format("hh:mm a");
-  // console.log("Check time: ", time);
+  const hours = new Date().getHours();
 
-  // if (time > "08:00 a" && time < "16:59 a") {
-  //   console.log("open");
-  // }
-  // console.log("close");
+  console.log("Check time:", hours);
+
+  // const timing = () => {
+  //   if (hours >= 8 && hours < 12) {
+  //     return "open";
+  //   } else {
+  //     return "close";
+  //   }
+  // };
+
+  const timing = hours >= 8 && hours < 17 ? "open" : "close";
 
   return (
     <div>
-      We are: <div style={{ fontWeight: "bold" }}>open</div> <br /> To make an
-      appointment <br /> <br /> call: 020 555 555
+      We are: <div style={{ fontWeight: "bold" }}>{timing}</div> <br /> To make
+      an appointment <br /> <br /> call: 020 555 555
     </div>
   );
 }

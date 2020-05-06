@@ -27,23 +27,21 @@ export default function DocSchedule() {
   return (
     <div>
       <Title title="Who is on duty?" />
-      {availabilities.map((availability, index) => {
-        console.log("Check availability: ", availability);
-        return (
-          <div key={index}>
-            <table>
-              <tr>
-                <th>Doctor</th>
-                <th>Availability</th>
-              </tr>
-              <tr>
-                <td>{availability.doctor}</td>{" "}
-                <td>{availability.onDuty ? "on Duty" : "off Duty"}</td>
-              </tr>
-            </table>
-          </div>
-        );
-      })}
+      <table>
+        <tr>
+          <th>Doctor</th>
+          <th>Availability</th>
+        </tr>
+        {availabilities.map((availability) => {
+          console.log("Check availability: ", availability);
+          return (
+            <tr key={availability.doctor}>
+              <td>{availability.doctor}</td>{" "}
+              <td>{availability.onDuty ? "on Duty" : "off Duty"}</td>
+            </tr>
+          );
+        })}
+      </table>
       <br />
       <TimeOfContact />
     </div>
