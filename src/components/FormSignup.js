@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { render } from "react-dom";
+import { Message, Form } from "semantic-ui-react";
 
-export default function Form() {
+export default function FormSignup() {
   const [newFirstN, setFirstN] = useState("");
   const [newLastN, setLastN] = useState("");
   const [newEmail, setEmail] = useState("");
