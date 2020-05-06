@@ -1,15 +1,56 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
 export default function NavBar() {
   return (
     <div>
       <nav>
         <br />
-        <Link to="/">Home</Link> {" | "}
-        <Link to="/docSchedule">Doctor Schedule</Link> {" | "}
-        <Link to="/patientSignup">Patient Signup</Link> {" | "}
-        <Link to="/patientDatabase">Patient Database</Link>
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          exact
+          to="/"
+        >
+          Home
+        </NavLink>{" "}
+        {" | "}
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to="/docSchedule"
+        >
+          Doctor Schedule
+        </NavLink>{" "}
+        {" | "}
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to="/patientSignup"
+        >
+          Patient Signup
+        </NavLink>{" "}
+        {" | "}
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to="/patientDatabase"
+        >
+          Patient Database
+        </NavLink>
       </nav>
       <br />
       <hr />
