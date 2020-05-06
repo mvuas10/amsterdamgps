@@ -5,17 +5,25 @@ import axios from "axios";
 
 export default function DocSchedule() {
   const [availabilities, setAvailability] = useState([]);
+  const [appStatus, setAppStatus] = useState("loading");
 
   useEffect(() => {
     async function fetchAvailability() {
+      setAppStatus("Loading...");
       const response = await axios.get(
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors"
       );
       console.log("Check availability: ", response.data);
       setAvailability(response.data);
+      setAppStatus("done");
     }
     fetchAvailability();
   }, []);
+
+  console.log("status check: ", appStatus);
+  if (appStatus === "Loading...")
+    return <h1>Loading availability. Please wait ...</h1>;
+
   return (
     <div>
       <Title title="Who is on duty?" />
