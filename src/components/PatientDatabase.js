@@ -1,5 +1,10 @@
 import React from "react";
+import Title from "./Title";
 
 export default function PatientDatabase() {
-  return <div>Hi! I am Patient Database</div>;
+  return (
+    <div>
+      <Title title="Patient Database" />
+    </div>
+  );
 }

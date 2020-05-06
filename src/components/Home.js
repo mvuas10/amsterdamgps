@@ -1,5 +1,10 @@
 import React from "react";
+import Title from "./Title";
 
 export default function Home() {
-  return <div>Hi! I am home</div>;
+  return (
+    <div>
+      <Title title="Welcome to AMS GPs" />
+    </div>
+  );
 }

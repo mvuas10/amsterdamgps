@@ -1,5 +1,10 @@
 import React from "react";
+import Title from "./Title";
 
 export default function DocSchedule() {
-  return <div>Hi! I am Doctor Schedule</div>;
+  return (
+    <div>
+      <Title title="Who is on duty?" />
+    </div>
+  );
 }

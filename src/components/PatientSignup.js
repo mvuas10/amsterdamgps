@@ -1,5 +1,10 @@
 import React from "react";
+import Title from "./Title";
 
 export default function PatientSignup() {
-  return <div>Hi! I am Patient Signup</div>;
+  return (
+    <div>
+      <Title title="Patient signup" />
+    </div>
+  );
 }
