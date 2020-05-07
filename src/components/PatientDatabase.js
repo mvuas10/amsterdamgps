@@ -29,7 +29,7 @@ export default function PatientDatabase() {
   return (
     <div>
       <Title title="Patient Database" />
-      {patients.map((patient) => {
+      {sortPatientsLastName.map((patient) => {
         // console.log(
         //   "Patient test:",
         //   patient.firstName,
