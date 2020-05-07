@@ -22,6 +22,10 @@ export default function PatientDatabase() {
 
   console.log("Check patients:", patients);
 
+  const sortPatientsLastName = patients.sort(function (a, b) {
+    return a.lastName.localeCompare(b.lastName);
+  });
+
   return (
     <div>
       <Title title="Patient Database" />
