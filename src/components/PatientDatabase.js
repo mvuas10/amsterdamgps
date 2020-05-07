@@ -14,7 +14,7 @@ export default function PatientDatabase() {
       const response = await axios.get(
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors"
       );
-      // console.log("Check doctors data:", response.data);
+      console.log("Check doctors data:", response.data);
       setDoctors(response.data);
     }
     fetchDoctors();
@@ -26,7 +26,7 @@ export default function PatientDatabase() {
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
       );
 
-      // console.log("Check patients data:", response.data);
+      console.log("Check patients data:", response.data);
       setPatients(response.data);
     }
     fetchPatients();
@@ -39,9 +39,13 @@ export default function PatientDatabase() {
   });
 
   const filterPatientByDoctorID = sortPatientsLastName.filter((patient) => {
-    console.log("Check comparison:", patient.doctorID === sortBy);
+    if (doctors.id === patients.doctorId) {
+      console.log("Check:", doctors.id, patients.doctorId);
+      return true;
+    } else {
+      return false;
+    }
   });
-  console.log("Check sortBy:", sortBy);
 
   return (
     <div>
