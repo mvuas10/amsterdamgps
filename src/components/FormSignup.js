@@ -12,6 +12,12 @@ export default function FormSignup() {
   const [newGender, setGender] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
 
+  // constructor() {
+  //   super()
+  //   this.state= {
+  //     formError: false
+  //   }
+
   //   console.log("Check gender:", newGender);
   //   console.log("Check lastName: ", newLastN);
   //   console.log("Check phone: ", newPhone);
@@ -79,6 +85,19 @@ export default function FormSignup() {
         <br />
         <br />
         <input type="submit" value="Submit" />
+        {/* {!this.state.formError ? (
+          <Message
+            positive
+            header="Your user registration was successful"
+            content="You may now log-in with the username you have chosen"
+          />
+        ) : (
+          <Message
+            negative
+            header="Missing fields!"
+            list={["All fields must be filled."]}
+          />
+        )} */}
       </form>
     </div>
   );

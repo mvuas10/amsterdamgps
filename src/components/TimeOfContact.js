@@ -8,7 +8,7 @@ export default function TimeOfContact() {
   // const time = moment().utcOffset("+01:55").format("hh:mm a");
   const hours = new Date().getHours();
 
-  console.log("Check time:", hours);
+  // console.log("Check time:", hours);
 
   // const timing = () => {
   //   if (hours >= 8 && hours < 12) {
