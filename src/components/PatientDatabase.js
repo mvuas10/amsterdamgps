@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 export default function PatientDatabase() {
   const [patients, setPatients] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [sortBy, setSortBy] = useState({});
 
   useEffect(() => {
     async function fetchDoctors() {
       const response = await axios.get(
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors"
       );
-      console.log("Check doctors data:", response.data);
+      // console.log("Check doctors data:", response.data);
       setDoctors(response.data);
     }
     fetchDoctors();
@@ -25,7 +26,7 @@ export default function PatientDatabase() {
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
       );
 
-      console.log("Check patients data:", response.data);
+      // console.log("Check patients data:", response.data);
       setPatients(response.data);
     }
     fetchPatients();
@@ -37,15 +38,22 @@ export default function PatientDatabase() {
     return a.lastName.localeCompare(b.lastName);
   });
 
+  const filterPatientByDoctorID = sortPatientsLastName.filter((patient) => {
+    console.log("Check comparison:", patient.doctorID === sortBy);
+  });
+  console.log("Check sortBy:", sortBy);
+
   return (
     <div>
       <Title title="Patient Database" />
       <label>Doctor</label>
-      <select onChange={(event) => console.log(event.target.value)}>
+      <select
+        value={sortBy}
+        onChange={(event) => setSortBy(event.target.value)}
+      >
         <option value="all">All patients</option>
         {doctors.map((doctor) => {
-          console.log("Check doctor:", doctor.doctor);
-          console.log("Check doctor.id:", doctor.id);
+          console.log("Check doctor:", doctor.doctor, doctor.id);
           return (
             <option key={doctor.id} value={doctor.id}>
               {doctor.doctor}
