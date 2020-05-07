@@ -1,12 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "./Title";
 import PatientInfoCard from "./PatientInfoCard";
+import axios from "axios";
 
 export default function PatientDatabase() {
+  //manage patients here
+  //Lift state
+  const [patients, setPatients] = useState([]);
+
+  useEffect(() => {
+    async function fetchPatients() {
+      const response = await axios.get(
+        "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
+      );
+
+      console.log("Check data:", response.data);
+      setPatients(response.data);
+    }
+    fetchPatients();
+  }, []);
+
+  console.log("Check patients:", patients);
+
   return (
     <div>
       <Title title="Patient Database" />
-      <PatientInfoCard />
+      {patients.map((patient) => {
+        // console.log(
+        //   "Patient test:",
+        //   patient.firstName,
+        //   patient.lastName,
+        //   patient.id,
+        //   patient.dateOfBirth
+        // );
+        return (
+          <div key={patient.firstName}>
+            <PatientInfoCard
+              firstName={patient.firstName}
+              lastName={patient.lastName}
+              id={patient.id}
+              dateOfBirth={patient.dateOfBirth}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

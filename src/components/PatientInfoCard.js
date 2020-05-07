@@ -2,25 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export default function PatientInfoCard() {
-  const [patients, setPatients] = useState([]);
+export default function PatientInfoCard(props) {
+  //   const [patients, setPatients] = useState([]);
 
-  useEffect(() => {
-    async function fetchPatients() {
-      const response = await axios.get(
-        "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
-      );
+  //   useEffect(() => {
+  //     async function fetchPatients() {
+  //       const response = await axios.get(
+  //         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
+  //       );
 
-      console.log("Check data:", response.data);
-      setPatients(response.data);
-    }
-    fetchPatients();
-  }, []);
+  //       console.log("Check data:", response.data);
+  //       setPatients(response.data);
+  //     }
+  //     fetchPatients();
+  //   }, []);
 
-  console.log("Check patients:", patients);
+  //   console.log("Check patients:", patients);
+
   return (
     <div>
-      {patients.map((patient) => {
+      {/* {patients.map((patient) => {
         console.log(patient);
         return (
           <div key={patient.firstName}>
@@ -36,7 +37,14 @@ export default function PatientInfoCard() {
             </Link>
           </div>
         );
-      })}
+      })} */}
+      Name: {props.firstName} {props.lastName} <br />
+      ID: {props.id} <br />
+      Date of birth: {props.dateOfBirth} <br />
+      <Link>
+        <button>Show details</button>
+      </Link>
+      <br /> <br />
     </div>
   );
 }
