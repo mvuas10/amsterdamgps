@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Title from "./Title";
 import PatientInfoCard from "./PatientInfoCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function PatientDatabase() {
   //manage patients here
@@ -45,6 +46,10 @@ export default function PatientDatabase() {
               id={patient.id}
               dateOfBirth={patient.dateOfBirth}
             />
+            <Link to={`/patientDetails/${patient.id}`}>
+              <button>Show details</button>
+            </Link>
+            <br /> <br />
           </div>
         );
       })}

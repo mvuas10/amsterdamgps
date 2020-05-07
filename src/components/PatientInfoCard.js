@@ -21,30 +21,9 @@ export default function PatientInfoCard(props) {
 
   return (
     <div>
-      {/* {patients.map((patient) => {
-        console.log(patient);
-        return (
-          <div key={patient.firstName}>
-            <h4>
-              Name: {patient.firstName} {patient.lastName}
-              <br />
-              ID: {patient.id}
-              <br />
-              Date of birth: {patient.dateOfBirth}
-            </h4>
-            <Link>
-              <button>Show details</button>
-            </Link>
-          </div>
-        );
-      })} */}
       Name: {props.firstName} {props.lastName} <br />
       ID: {props.id} <br />
-      Date of birth: {props.dateOfBirth} <br />
-      <Link to="/patientDetails/:id">
-        <button>Show details</button>
-      </Link>
-      <br /> <br />
+      Date of birth: {props.dateOfBirth}
     </div>
   );
 }
