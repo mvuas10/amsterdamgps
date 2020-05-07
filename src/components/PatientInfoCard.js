@@ -41,7 +41,9 @@ export default function PatientInfoCard(props) {
       Name: {props.firstName} {props.lastName} <br />
       ID: {props.id} <br />
       Date of birth: {props.dateOfBirth} <br />
-      <button>Show details</button>
+      <Link to="/patientDetails/:id">
+        <button>Show details</button>
+      </Link>
       <br /> <br />
     </div>
   );

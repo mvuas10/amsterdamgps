@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import DocSchedule from "./components/DocSchedule";
 import PatientSignup from "./components/PatientSignup";
 import PatientDatabase from "./components/PatientDatabase";
+import PatientDetails from "./components/PatientDetails";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/docSchedule" component={DocSchedule} />
         <Route exact path="/patientSignup" component={PatientSignup} />
         <Route exact path="/patientDatabase" component={PatientDatabase} />
+        <Route path="/patientDetails/:id" component={PatientDetails} />
       </Switch>
     </div>
   );
