@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 export default function PatientDatabase() {
   const [patients, setPatients] = useState([]);
   const [doctors, setDoctors] = useState([]);
-  const [sortBy, setSortBy] = useState({});
+  const [sortBy, setSortBy] = useState("all"); //Only when the page is loaded the 1st time
 
   useEffect(() => {
     async function fetchDoctors() {
       const response = await axios.get(
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors"
       );
-      console.log("Check doctors data:", response.data);
+      // console.log("Check doctors data:", response.data);
       setDoctors(response.data);
     }
     fetchDoctors();
@@ -26,26 +26,37 @@ export default function PatientDatabase() {
         "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
       );
 
-      console.log("Check patients data:", response.data);
+      // console.log("Check patients data:", response.data);
       setPatients(response.data);
     }
     fetchPatients();
   }, []);
 
   // console.log("Check patients:", patients);
+  // console.log("Check sortBy:", sortBy);
 
   const sortPatientsLastName = patients.sort(function (a, b) {
     return a.lastName.localeCompare(b.lastName);
   });
 
-  const filterPatientByDoctorID = sortPatientsLastName.filter((patient) => {
-    if (doctors.id === patients.doctorId) {
-      console.log("Check:", doctors.id, patients.doctorId);
-      return true;
-    } else {
-      return false;
+  const filterPatientByDoctorID = sortPatientsLastName.filter((patientCard) => {
+    //Make the filter all
+    // console.log("What is the patient card?", patientCard);
+    // console.log("What is my doctor ID?", patientCard.doctorId);
+    // console.log(
+    //   "Why my console.log doesn't work?",
+    //   sortBy,
+    //   patientCard.doctorId,
+    //   sortBy == patientCard.doctorId
+    // );
+    if (sortBy === "all") {
+      return patientCard; //Run through all the patients last name
+    } else if (sortBy == patientCard.doctorId) {
+      // console.log("SortBy matches DoctorID on patientCard");
+      return patientCard;
     }
   });
+  console.log("SortBy:", sortBy); //Holds the value
 
   return (
     <div>
@@ -57,7 +68,7 @@ export default function PatientDatabase() {
       >
         <option value="all">All patients</option>
         {doctors.map((doctor) => {
-          console.log("Check doctor:", doctor.doctor, doctor.id);
+          // console.log("Check doctor dropdown:", doctor.doctor, doctor.id); //Drop down works
           return (
             <option key={doctor.id} value={doctor.id}>
               {doctor.doctor}
@@ -67,7 +78,7 @@ export default function PatientDatabase() {
       </select>
       <br />
       <br />
-      {sortPatientsLastName.map((patient) => {
+      {filterPatientByDoctorID.map((patient) => {
         return (
           <div key={patient.firstName}>
             <PatientInfoCard
