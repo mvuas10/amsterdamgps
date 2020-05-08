@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export default function PatientDatabase() {
   const [patients, setPatients] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [sortBy, setSortBy] = useState("all");
 
   useEffect(() => {
     async function fetchDoctors() {
@@ -35,11 +36,25 @@ export default function PatientDatabase() {
     return a.lastName.localeCompare(b.lastName);
   });
 
+  const filterPatientByDoctorID = sortPatientsLastName.filter((patientCard) => {
+    // console.log("What is my patient Card?", patientCard);
+    // console.log("What is my patientCard.doctorId?", patientCard.doctorId);
+    // console.log("What is sortBy?", sortBy);
+    if (sortBy === "all") {
+      return patientCard;
+    } else if (sortBy == patientCard.doctorId) {
+      return patientCard;
+    }
+  });
+
   return (
     <div>
       <Title title="Patient Database" />
       <label>Doctor</label>
-      <select onChange={(event) => console.log(event.target.value)}>
+      <select
+        value={sortBy}
+        onChange={(event) => setSortBy(event.target.value)}
+      >
         <option value="all">All patients</option>
         {doctors.map((doctor) => {
           return (
@@ -51,7 +66,7 @@ export default function PatientDatabase() {
       </select>
       <br />
       <br />
-      {sortPatientsLastName.map((patient) => {
+      {filterPatientByDoctorID.map((patient) => {
         return (
           <div key={patient.firstName}>
             <PatientInfoCard
