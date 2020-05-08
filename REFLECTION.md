@@ -1,0 +1,4 @@
+o What did you do well, process wise
+I followed the process. Planning, data mode, processing, especially the execution steps. I spent the entire morning just to think about the last 2 pages and it paid off completely. I was able to breeze through it besides the dropdown filter button which I needed to ask for help. I will definitly continue to do this in the future. It is always good to just think and strategize before starting to write code.
+o What would you do differently next time to improve, process wise
+I should pace myself more. I went quite slow the first day. The second day went ok. I was quite proud that I was able to complete the second day with not too much help from the teacher. The third day was help day. I did not complete the SERVER part because I was quite tired. I also still need to do the styling part now.
