@@ -11,6 +11,7 @@ export default function FormSignup() {
   const [newPhone, setPhone] = useState("");
   const [newGender, setGender] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,6 +23,11 @@ export default function FormSignup() {
       newGender,
       selectedDate,
     });
+    setFormSubmitted(true);
+  }
+  console.log("Check form submitted", formSubmitted);
+  if (formSubmitted) {
+    return <h1>You have submitted successfully</h1>;
   }
 
   return (
